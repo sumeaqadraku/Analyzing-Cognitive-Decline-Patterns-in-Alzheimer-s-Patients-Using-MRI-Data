@@ -1,0 +1,13 @@
+Distance Transform Calculation:
+
+distance_transform_edt(white_matter_surface_array) computes a distance map for the white matter surface. This map tells us how far each voxel (3D pixel) in the image is from the nearest white matter surface.
+Sampling Cortical Thickness:
+
+cortical_thickness = distance_transform[gray_matter_surface_array > 0] uses the distance map to measure the cortical thickness. For each voxel in the gray matter surface (where gray_matter_surface_array > 0), we find the corresponding value in the distance transform, which represents the thickness of the cortex at that point.
+Histogram Plot:
+
+plt.hist(cortical_thickness, bins=50, color='gray') creates a histogram showing how the thickness values are distributed. This plot helps visualize the range and frequency of different thickness values.
+Average Cortical Thickness:
+
+average_thickness = np.mean(cortical_thickness) calculates the average value of the cortical thickness measurements. This gives us a single number representing the typical thickness of the cortex across the sampled area.
+In summary, the distance transform provides a way to measure how thick the cortex is at various points, and the histogram and average thickness give us insights into the overall distribution and typical value of cortical thickness.
